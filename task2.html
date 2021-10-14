@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>change picture</title>
+
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  h2 {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .img_container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+  }
+
+  img {
+    width: 500px;
+    height: 500px;
+  }
+</style>
+
+<body onload="changeImage()">
+  <div class="img_container">
+    <h2>Image will change after 1 sec</h2>
+    <img id="img" src="../images/cake1.jpg" />
+  </div>
+</body>
+<script src="../js/task2.js"></script>
+<script>
+  function displayNextImage() {
+    x = (x === images.length - 1) ? 0 : x + 1;
+    document.getElementById("img").src = images[x];
+  }
+  function changeImage() {
+    setInterval(displayNextImage, 1000);
+  }
+  var images = [],
+    x = -1;
+  images[0] = "../images/cake1.jpg";
+  images[1] = "../images/cake2.jpg";
+  images[2] = "../images/cake3.jpg";
+</script>
+
+</html>

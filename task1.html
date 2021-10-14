@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html {
+        font-size: 10px;
+    }
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .delete {
+        display: none !important;
+    }
+    .todo_container {
+        display: flex;
+        flex-direction: column;
+        background: lightgreen;
+        align-items: center;
+        padding-bottom: 2rem;
+    }
+    .todolist {
+        display: flex;
+    }
+
+    ul {
+        width: 100%;
+        padding: 0;
+        background: rgb(102, 101, 100);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .list_items {
+        padding: 10px;
+        background-color: rgb(104, 101, 97);
+        color: #fff;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(211, 211, 211, 0.4);
+    }
+    h2 {
+        font-size: 5rem;
+        padding: 4rem;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px;
+        margin-left: 10px;
+    }
+</style>
+
+<body>
+    <div class="todo_container">
+        <h2>To Do List</h2>
+        <div class="todolist">
+            <input id="userInput" type="text" placeholder="Add your task here...">
+            <button id="enter">Add</i></button>
+        </div>
+
+    </div>
+    <ul>
+    </ul>
+
+    <script>
+        var enterButton = document.getElementById("enter");
+        var input = document.getElementById("userInput");
+        var ul = document.querySelector("ul");
+        var li;
+        var closebtn;
+        // var item = document.getElementsByTagName("li");
+
+        enterButton.addEventListener("click", ()=> {
+            if (input.value.length !== 0) {
+                li = document.createElement("li");
+                p = document.createElement("p");
+                closebtn = document.createElement("button");
+                closebtn.appendChild(document.createTextNode("Delete"));
+                p.append(input.value);
+                li.appendChild(p)
+                li.appendChild(closebtn)
+                li.classList.add("list_items");
+                ul.appendChild(li);
+                input.value="";
+                closebtn.addEventListener("click", (e)=> {
+                    console.log(e.target);
+                    e.target.parentElement.classList.add("delete");
+                    e.target.parentElement.remove();
+                })
+            } else {
+                alert("please enter the task");
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+</html>

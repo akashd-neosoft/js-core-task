@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/digital_clock.css">
+</head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .digital_clock {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 3rem;
+            padding-bottom: 20px;
+        }
+
+        #timing {
+            font-size: 4rem;
+        }
+
+    </style>
+<body>
+    <div class="digital_clock">
+        <h2>D I G I T A L - C L O C K</h2>
+        <div id="timing">8:10:45</div>
+  
+    </div>
+</body>
+<!-- <script src="../js/digital_clock.js"></script> -->
+<script>
+setInterval(digitalclock, 1000);
+function digitalclock() {
+    var time = new Date();
+    var hours = time.getHours();
+    var min = time.getMinutes();
+    var seconds = time.getSeconds();
+    var unit = "AM"
+
+    if (hours> 12) {
+        hours -= 12;
+        unit = "PM"
+    }
+    if (hours == 0) {
+        hours = 12;
+        unit = "AM"
+    }
+
+
+
+
+    let currentTime = hours + " : " + min + " : " + seconds +" "+ unit;
+  
+    document.getElementById("timing").innerHTML = currentTime;
+
+}
+
+digitalclock();
+</script>
+</html>

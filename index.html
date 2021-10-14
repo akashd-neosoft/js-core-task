@@ -6,11 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Js Task</title>
     <Style>
+        .html_pages {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border: 2px solid #000;
+            border-radius: 20px;
+            min-height: 300px;
+        }
 
+        .html_pages a {
+            padding: 10px 50px;
+            color: #000;
+            text-decoration: none;
+            max-width: 100%;
+            font-family: sans-serif;
+            font-size: 1.3rem
+        }
+
+        .html_pages a:first-child {
+            padding-top: 5rem;
+        }
     </Style>
 </head>
 <body>
-    <div>
+    <div class="html_pages">
         <a href="task1.html">To Do List</a>
         <a href="task2.html">Set Interval</a>
         <a href="digital_clock.html">digital Clock</a>
